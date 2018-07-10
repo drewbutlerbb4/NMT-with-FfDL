@@ -42,9 +42,15 @@ $s3cmd cp $dataDirectory/valid.title.filter.txt s3://$trainingDataBucket
 
 ### 2. Change the manifest.yaml to Match your Environment
 
-1. Download entrypoint.zip and manifest.yaml file.
+1. Download entrypoint.sh and manifest.yaml file.
 
-2. Change the manifest.yaml
+2. Zip entrypoint.sh by going to the directory where entrypoint.sh is stored and then running
+
+```shell
+zip entrypoint.zip entrypoint.sh
+```
+
+3. Change the manifest.yaml
 
 #### Configure Training Job Specifications
 
@@ -118,4 +124,4 @@ framework:
       -gpuid 0;
 ```
 
-3. Go to the FfDL UI and submit a training job with entrypoint.zip and manifest.yaml
+4. Go to the FfDL UI and submit a training job with entrypoint.zip and manifest.yaml
