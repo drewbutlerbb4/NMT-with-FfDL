@@ -1,0 +1,48 @@
+name: Sequence 2 Sequence on Gigaword
+description: OpenNMT Seq2seq model trained on Gigaword dataset
+version: "1.0"
+gpus: 1
+cpus: 8
+memory: 16GB
+
+# Object stores that allow the system to retrieve training data.
+# Replace <training_data> with the bucket where the training data is located
+# Replace <training_results> with the bucket where the training results should go
+# Replace <auth_url> with http://<Your object storage Authentication Endpoints>
+# Replace <user_name> with your object storage Access Key ID
+# Replace <password> with Your object storage Access Key Secret
+data_stores:
+  - id: test-datastore
+    type: mount_cos
+    training_data:
+      container: <training_data>
+    training_results:
+      container: <training_results>
+    connection:
+      auth_url: <auth_url>
+      user_name: <user_name>
+      password: <password>
+
+
+# Replace -data "/gigaword" with the name of the processed data files
+# Replace -epochs "1" with the number of epochs to be run
+# replace -gpuid "0" with the id of your gpu to run with a specific gpu
+# If the training_data container does not allow write access then change -save_data <save_dir> (preprocess.py)
+#     to a local directory and -data <data_dir> to the same local directory (train.py)
+framework:
+  name: pytorch
+  version: latest
+  command: >
+    bash entrypoint.sh;
+    python OpenNMT-py/preprocess.py
+     -train_src $DATA_DIR/train.article.txt
+     -train_tgt $DATA_DIR/train.title.txt
+     -valid_src $DATA_DIR/valid.article.filter.txt
+     -valid_tgt $DATA_DIR/valid.title.filter.txt 
+     -max_shard_size 200000000
+     -save_data $DATA_DIR/processed_data;
+    python OpenNMT-py/train.py
+      -data $DATA_DIR/processed_data
+      -save_model $RESULT_DIR/model
+      -epochs 1
+      -gpuid 0;
