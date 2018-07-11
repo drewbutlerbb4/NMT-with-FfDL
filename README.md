@@ -40,7 +40,7 @@ $s3cmd cp $dataDirectory/valid.article.filter.txt s3://$trainingDataBucket
 $s3cmd cp $dataDirectory/valid.title.filter.txt s3://$trainingDataBucket
 ```
 
-### 2. Change the manifest.yaml to Match your Environment
+### 2. Configure manifest.yaml and Submit the Training Job
 
 1. Download entrypoint.sh and manifest.yaml file.
 
