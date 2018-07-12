@@ -12,7 +12,7 @@ RUN pip install -r OpenNMT-py/requirements.txt
 RUN pip install -U ./OpenNMT-py
 
 # Update src, tgt, and model flags to your owns
-RUN cd OpenNMT-py && mkdir s2s && sed -i s/"100)"/"500)"/g extract_context.py && python extract_context.py -src ../valid-article.txt -tgt ../valid-titler.txt -model ../model-vis.pt
+RUN cd OpenNMT-py && mkdir s2s && sed -i s/"100)"/"500)"/g extract_context.py && python extract_context.py -src ../src.txt -tgt ../tgt.txt -model ../model-vis.pt
 RUN cp Seq2Seq-Vis/scripts/h5_to_faiss.py OpenNMT-py/s2s/h5_to_faiss.py
 RUN conda install -y faiss-cpu -c pytorch
 RUN cd OpenNMT-py/s2s && python h5_to_faiss.py -states states.h5 -data decoder_out -output decoder.faiss -stepsize 100
