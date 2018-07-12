@@ -2,7 +2,7 @@
 
 In this section, we will use [a visual debugging tool for Sequence-to-Sequence models](https://github.com/HendrikStrobelt/Seq2Seq-Vis) to help us analyze and better understand our OpenNMT model.
 
-![s2s-vis](s2s-vis.png)
+![s2s-vis](images/s2s-vis.png)
 
 ### Prerequisites
 
