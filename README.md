@@ -125,3 +125,5 @@ framework:
 ```
 
 4. Go to the FfDL UI and submit a training job with entrypoint.zip and manifest.yaml
+
+5. Once your training job is completed, you can go to your result object storage bucket and download your model. Now you can go to [the next step](s2s-vis) to learn about how to use a visual debugging tool to further understand your OpenNMT Seq2Seq model.

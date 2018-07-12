@@ -6,9 +6,9 @@ In this section, we will use [a visual debugging tool for Sequence-to-Sequence m
 
 * [Docker](https://www.docker.com/): You need to have your Docker running with at least 4 CPUs and 8 GB of memory. In addition, you need at least 30 GB in the Docker disk.
 
-* *OpenNMT Model*: You can use the OpenNMT model from the previous section or download a pre-trained model from [NMT's PyTorch models](http://opennmt.net/Models-py/).
+* **OpenNMT Model**: You can use the OpenNMT model from the previous section or download a pre-trained model from [NMT's PyTorch models](http://opennmt.net/Models-py/).
 
-* *Sample source and target file*: You need to have some sample source and target file for your OpenNMT model, so the Seq2Seq-Vis app can create a neighborhood view to look at your model decisions in the context of finding similar examples.
+* **Sample source and target file**: You need to have some sample source and target file for your OpenNMT model, so the Seq2Seq-Vis app can create a neighborhood view to look at your model decisions in the context of finding similar examples.
 
 ### Create and run the Docker container for Seq2Seq-Vis Webapp.
 
