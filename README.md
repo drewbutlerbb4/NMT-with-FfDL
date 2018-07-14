@@ -2,6 +2,7 @@
 
 ### Prerequisites
 
+* [Fabric for Deep Learning](https://github.com/IBM/FfDL): An open-source model training platform for deep learning on Kubernetes.
 * `S3 CLI`: The [command-line interface](https://aws.amazon.com/cli/) to configure your Object Storage
 * S3 based Object Storage: Provision an S3 based Object Storage from your Cloud provider. Take note of your Authentication Endpoints, Access Key ID and Secret
 > For IBM Cloud, you can provision an Object Storage from [IBM Cloud Dashboard](https://console.bluemix.net/catalog/infrastructure/cloud-object-storage?taxonomyNavigation=apps) or from [SoftLayer Portal](https://control.softlayer.com/storage/objectstorage).
@@ -33,7 +34,7 @@ $s3cmd mb s3://$trainingResultBucket
 
 4. Upload your dataset.
 ```shell
-dataDirectory = /path/to/data/directory
+dataDirectory = </path/to/gigaword/data/directory>/train
 $s3cmd cp $dataDirectory/train.article.txt s3://$trainingDataBucket
 $s3cmd cp $dataDirectory/train.title.txt s3://$trainingDataBucket
 $s3cmd cp $dataDirectory/valid.article.filter.txt s3://$trainingDataBucket
@@ -125,3 +126,5 @@ framework:
 ```
 
 4. Go to the FfDL UI and submit a training job with entrypoint.zip and manifest.yaml
+
+5. Once your training job is completed, you can go to your result object storage bucket and download your model. Now you can go to [the next step](s2s-vis) to learn about how to use a visual debugging tool to further understand your OpenNMT Seq2Seq model.

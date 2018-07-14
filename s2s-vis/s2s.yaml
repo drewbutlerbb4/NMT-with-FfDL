@@ -1,0 +1,13 @@
+# -- minimal config
+model: model-vis.pt
+dicts:
+ src: src.dict
+ tgt: tgt.dict
+embeddings: embs.h5
+train: states.h5
+
+# -- OPTIONAL: FAISS indices for Neighborhoods
+indexType: faiss
+indices:
+ decoder: decoder.faiss
+ encoder: encoder.faiss
